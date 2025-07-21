@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>kr.dogfoot</groupId>
+    <groupId>com.agadasom</groupId>
     <artifactId>hwplib</artifactId>
     <packaging>jar</packaging>
-    <version>1.1.10</version>
+    <version>0.0.1</version>
 
-    <name>HWP Library</name>
-    <description>The hwp library is a library that can read and write hwp files used in the word processor developed by Hancom.</description>
-    <url>https://github.com/neolord0/hwplib</url>
+    <name>HWP Library For Contempory Java</name>
+    <description>Hancom 에서 개발한 HWP 포맷 파일에 접근할 수 있는 방법을 제공하는 라이브러리. https://github.com/neolord0 에서 개발된 소스에서 Apache 재단의 POI 부분을 외부 라이브러리로 분리하고 java jdk 버전을 17에 맞춰 재코딩하려는 시도임. </description>
+    <url>https://github.com/JuanPionero/hwplib</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,17 +26,30 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/neolord0/hwplib</url>
-        <connection>scm:git:git://github.com/neolord0/hwplib.git</connection>
+        <url>https://github.com/JuanPionero/hwplib</url>
+        <connection>scm:git:git://github.com/JuanPionero/hwplib.git</connection>
     </scm>
 
     <developers>
+         <developer>
+            <email>juanlee0@naver.com</email>
+            <name>SeungHoon Lee</name>
+            <url>https://github.com/JuanPionero</url>
+            <id>juanlee0</id>
+            <roles>
+                     <role>developer</role>                     
+            </roles>
+        </developer>
         <developer>
             <email>neolord@hanmail.net</email>
             <name>Park.sungkyon</name>
             <url>https://github.com/neolord0</url>
             <id>neolord0</id>
+            <roles>
+                     <role>starter</role>                     
+            </roles>
         </developer>
+         
     </developers>
 
     <build>
@@ -49,9 +62,9 @@
                     <excludes>
                         <exclude>**/sample/**</exclude>
                     </excludes>
-                    <source>7</source>
-                    <target>7</target>
-                    <compilerVersion>1.7</compilerVersion>
+                    <source>17</source>
+                    <target>17</target>
+                    <compilerVersion>17</compilerVersion>
                 </configuration>
             </plugin>
             <!-- make jar -->
