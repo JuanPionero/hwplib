@@ -4,9 +4,8 @@ import kr.dogfoot.hwplib.object.bindata.BinData;
 import kr.dogfoot.hwplib.object.bodytext.BodyText;
 import kr.dogfoot.hwplib.object.docinfo.DocInfo;
 import kr.dogfoot.hwplib.object.fileheader.FileHeader;
-import kr.dogfoot.hwplib.org.apache.poi.hpsf.*;
+import org.apache.poi.hpsf.*;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 /**
@@ -81,7 +80,6 @@ public class HWPFile {
         return binData;
     }
 
-
     public SummaryInformation getSummaryInformation() {
         return summaryInformation;
     }
@@ -113,20 +111,25 @@ public class HWPFile {
 
     private void copySummaryInformation(SummaryInformation from) {
         try {
-            byte[] source = from.toBytes();
-            ByteArrayInputStream bis = new ByteArrayInputStream(source);
-            PropertySet propertySet = new PropertySet(bis);
-            summaryInformation = new SummaryInformation(propertySet);
+            // byte[] source = from.toBytes();
+            // ByteArrayInputStream bis = new ByteArrayInputStream(source);
+            // PropertySet propertySet = new PropertySet(bis);
+            // summaryInformation = new SummaryInformation(propertySet);
+            // 라이브러리 버전 변경되면서 방법도 바뀜.
+            summaryInformation = new SummaryInformation(from.toInputStream());
         } catch (WritingNotSupportedException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } catch (UnexpectedPropertySetTypeException e) {
-            throw new RuntimeException(e);
-        } catch (NoPropertySetStreamException e) {
-            throw new RuntimeException(e);
-        } catch (MarkUnsupportedException e) {
+        }
+        // catch (UnexpectedPropertySetTypeException e) {
+        // throw new RuntimeException(e);
+        // }
+        catch (NoPropertySetStreamException e) {
             throw new RuntimeException(e);
         }
+        // catch (MarkUnsupportedException e) {
+        // throw new RuntimeException(e);
+        // }
     }
 }
