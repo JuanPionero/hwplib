@@ -1,10 +1,11 @@
 package kr.dogfoot.hwplib.util.binary;
 
-import kr.dogfoot.hwplib.org.apache.poi.util.LittleEndian;
+import org.apache.poi.util.LittleEndian;
 
 public class Obfuscation {
     public static void transform(byte[] data) {
-        if (data == null || data.length != 256) return;
+        if (data == null || data.length != 256)
+            return;
 
         byte[] seedByte = { data[0], data[1], data[2], data[3] };
         int seed = LittleEndian.getInt(seedByte);

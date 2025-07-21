@@ -3,8 +3,8 @@ package kr.dogfoot.hwplib.util.compoundFile.reader;
 import kr.dogfoot.hwplib.object.RecordHeader;
 import kr.dogfoot.hwplib.object.docinfo.DocInfo;
 import kr.dogfoot.hwplib.object.fileheader.FileVersion;
-import kr.dogfoot.hwplib.org.apache.poi.poifs.filesystem.DocumentEntry;
-import kr.dogfoot.hwplib.org.apache.poi.poifs.filesystem.DocumentInputStream;
+import org.apache.poi.poifs.filesystem.DocumentEntry;
+import org.apache.poi.poifs.filesystem.DocumentInputStream;
 import kr.dogfoot.hwplib.util.binary.BitFlag;
 import kr.dogfoot.hwplib.util.binary.Compressor;
 import kr.dogfoot.hwplib.util.binary.Obfuscation;
@@ -27,7 +27,8 @@ import java.util.Arrays;
  * @author neolord
  */
 public class StreamReader {
-    public static StreamReader create(DocumentEntry de, boolean compress, boolean distribution, FileVersion fileVersion) throws Exception {
+    public static StreamReader create(DocumentEntry de, boolean compress, boolean distribution, FileVersion fileVersion)
+            throws Exception {
         InputStream is = documentInputStream(de, distribution);
         if (compress) {
             try {
@@ -68,7 +69,6 @@ public class StreamReader {
         cipher.init(Cipher.DECRYPT_MODE, secretKey);
         return new CipherInputStream(is, cipher);
     }
-
 
     private static Key secretKey(InputStream is) throws IOException {
         byte[] distributionDocumentData = readDistributionDocData(is);
@@ -173,7 +173,7 @@ public class StreamReader {
 
     public short readUInt1() throws IOException {
         byte[] buffer = readBytes(1);
-        byte[] buffer2 = { buffer[0], 0} ;
+        byte[] buffer2 = { buffer[0], 0 };
         return ByteBuffer.wrap(buffer2).order(ByteOrder.LITTLE_ENDIAN).getShort();
     }
 

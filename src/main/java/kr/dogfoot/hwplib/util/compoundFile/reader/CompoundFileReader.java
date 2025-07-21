@@ -1,7 +1,7 @@
 package kr.dogfoot.hwplib.util.compoundFile.reader;
 
 import kr.dogfoot.hwplib.object.fileheader.FileVersion;
-import kr.dogfoot.hwplib.org.apache.poi.poifs.filesystem.*;
+import org.apache.poi.poifs.filesystem.*;
 
 import java.io.*;
 import java.util.Set;
@@ -110,7 +110,7 @@ public class CompoundFileReader {
      * @throws Exception
      */
     public StreamReader getChildStreamReader(String name, boolean compress,
-                                             FileVersion fileVersion) throws Exception {
+            FileVersion fileVersion) throws Exception {
         Entry e = currentStorage.getEntry(name);
         if (e != null && e.isDocumentEntry()) {
             return StreamReader.create((DocumentEntry) e, compress, false, fileVersion);
@@ -119,7 +119,8 @@ public class CompoundFileReader {
         }
     }
 
-    public StreamReader getChildStreamReaderForDistribution(String name, boolean compress, FileVersion fileVersion) throws Exception {
+    public StreamReader getChildStreamReaderForDistribution(String name, boolean compress, FileVersion fileVersion)
+            throws Exception {
         Entry e = getCurrentStorage().getEntry(name);
         if (e != null && e.isDocumentEntry()) {
             return StreamReader.create((DocumentEntry) e, compress, true, fileVersion);

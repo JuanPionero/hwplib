@@ -1,8 +1,8 @@
 package kr.dogfoot.hwplib.util.compoundFile.writer;
 
 import kr.dogfoot.hwplib.object.fileheader.FileVersion;
-import kr.dogfoot.hwplib.org.apache.poi.poifs.filesystem.DirectoryEntry;
-import kr.dogfoot.hwplib.org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.poifs.filesystem.DirectoryEntry;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -94,7 +94,7 @@ public class CompoundFileWriter {
      * @return 스트림을 쓰기 위한 객체
      */
     public StreamWriter openCurrentStream(String name, boolean compress,
-                                          FileVersion fileVersion) {
+            FileVersion fileVersion) {
         currentStreamWriter = new StreamWriter(name, compress, fileVersion);
         return currentStreamWriter;
     }

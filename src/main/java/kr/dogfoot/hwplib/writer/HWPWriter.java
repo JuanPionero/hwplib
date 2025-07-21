@@ -6,7 +6,7 @@ import kr.dogfoot.hwplib.object.bodytext.Section;
 import kr.dogfoot.hwplib.object.bodytext.paragraph.memo.Memo;
 import kr.dogfoot.hwplib.object.docinfo.bindata.BinDataCompress;
 import kr.dogfoot.hwplib.object.fileheader.FileVersion;
-import kr.dogfoot.hwplib.org.apache.poi.hpsf.WritingNotSupportedException;
+import org.apache.poi.hpsf.WritingNotSupportedException;
 import kr.dogfoot.hwplib.util.compoundFile.writer.CompoundFileWriter;
 import kr.dogfoot.hwplib.util.compoundFile.writer.StreamWriter;
 import kr.dogfoot.hwplib.writer.autosetter.AutoSetter;
@@ -51,7 +51,6 @@ public class HWPWriter {
         w.writeAndClose(filepath);
     }
 
-
     /**
      * 한글 파일 객체를 파일로 쓴다.
      *
@@ -75,8 +74,6 @@ public class HWPWriter {
         w.docOptions();
         w.writeAndClose(os);
     }
-
-
 
     /**
      * 한긆 파일

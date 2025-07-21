@@ -5,9 +5,9 @@ import kr.dogfoot.hwplib.object.docinfo.BinData;
 import kr.dogfoot.hwplib.object.docinfo.bindata.BinDataCompress;
 import kr.dogfoot.hwplib.object.etc.HWPTag;
 import kr.dogfoot.hwplib.object.fileheader.FileVersion;
-import kr.dogfoot.hwplib.org.apache.poi.hpsf.PropertySet;
-import kr.dogfoot.hwplib.org.apache.poi.hpsf.SummaryInformation;
-import kr.dogfoot.hwplib.org.apache.poi.poifs.filesystem.DocumentInputStream;
+import org.apache.poi.hpsf.PropertySet;
+import org.apache.poi.hpsf.SummaryInformation;
+import org.apache.poi.poifs.filesystem.DocumentInputStream;
 import kr.dogfoot.hwplib.reader.bodytext.ForParagraphList;
 import kr.dogfoot.hwplib.reader.bodytext.ForSection;
 import kr.dogfoot.hwplib.reader.bodytext.memo.ForMemo;
@@ -318,13 +318,11 @@ public class HWPReader {
         return false;
     }
 
-
     private void summaryInformation() throws Exception {
         DocumentInputStream dis;
         try {
             dis = cfr.getChildInputStream("\u0005HwpSummaryInformation");
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             dis = null;
         }
 
@@ -359,7 +357,6 @@ public class HWPReader {
         }
     }
 
-
     /**
      * 텍스트를 추출하기 위해 hwp 파일을 읽는다.
      *
@@ -368,7 +365,8 @@ public class HWPReader {
      * @param tem      추출 방법
      * @throws Exception
      */
-    public static void forExtractText(String filepath, TextExtractorListener listener, TextExtractMethod tem) throws Exception {
+    public static void forExtractText(String filepath, TextExtractorListener listener, TextExtractMethod tem)
+            throws Exception {
         forExtractText(new FileInputStream(filepath), listener, tem);
     }
 
@@ -380,7 +378,8 @@ public class HWPReader {
      * @param tem      추출 방법
      * @throws Exception
      */
-    private static void forExtractText(FileInputStream is, TextExtractorListener listener, TextExtractMethod tem) throws Exception {
+    private static void forExtractText(FileInputStream is, TextExtractorListener listener, TextExtractMethod tem)
+            throws Exception {
         HWPReader r = new HWPReader();
         r.hwpFile = new HWPFile();
         r.cfr = new CompoundFileReader(is);
@@ -425,7 +424,8 @@ public class HWPReader {
      * @param tem          추출 방법
      * @throws Exception
      */
-    private void extractSectionText(int sectionIndex, TextExtractorListener listener, TextExtractMethod tem) throws Exception {
+    private void extractSectionText(int sectionIndex, TextExtractorListener listener, TextExtractMethod tem)
+            throws Exception {
         StreamReader sr = cfr.getChildStreamReader("Section" + sectionIndex, isCompressed(), getVersion());
         sr.setDocInfo(hwpFile.getDocInfo());
         ForParagraphList.extractText(sr, listener, tem);
