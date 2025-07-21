@@ -186,14 +186,14 @@ public class ParaHeadNumber {
     private static String romanNumber(int value, boolean uppercase) {
         String[] roman;
         if (uppercase) {
-            roman = new String[]{"M", "CM", "D", "CD", "C", "XC", "L", "XL",
-                    "X", "IX", "V", "IV", "I"};
+            roman = new String[] { "M", "CM", "D", "CD", "C", "XC", "L", "XL",
+                    "X", "IX", "V", "IV", "I" };
         } else {
-            roman = new String[]{"m", "cm", "d", "cd", "c", "xc", "l", "xl",
-                    "x", "ix", "v", "iv", "i"};
+            roman = new String[] { "m", "cm", "d", "cd", "c", "xc", "l", "xl",
+                    "x", "ix", "v", "iv", "i" };
         }
 
-        int[] decimal = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        int[] decimal = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
         String romanNumber = "";
         for (int i = 0; i < 13; i++) {
             while (value >= decimal[i]) {
@@ -209,11 +209,13 @@ public class ParaHeadNumber {
     }
 
     private static String uppercaseAlphabet(int value) {
-        return new Character((char) ('A' + (value - 1) % 26)).toString();
+        // return new Character((char) ('A' + (value - 1) % 26)).toString();
+        return Character.valueOf((char) ('A' + (value - 1) % 26)).toString();
     }
 
     private static String lowercaseAlphabet(int value) {
-        return new Character((char) ('a' + (value - 1) % 26)).toString();
+        // return new Character((char) ('a' + (value - 1) % 26)).toString();
+        return Character.valueOf((char) ('a' + (value - 1) % 26)).toString();
     }
 
     private static String circledUppercaseAlphabet(int value) {
