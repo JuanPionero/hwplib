@@ -12,7 +12,7 @@
 	- 한글과컴퓨터에서 공개한  '한글 문서 파일 구조 5.0' 문서 ( http://www.hancom.com/etc/hwpDownload.do?gnb0=269&gnb1=271&gnb0=101&gnb1=140 ) <br>
 	  ( “본 제품은 한글과컴퓨터의 HWP 문서 파일(.hwp) 공개 문서를 참고하여 개발하였습니다." )
 
-* 이 라이브러리에서 할 수 있는 일.(kr.dogfoot.hwplib.sample 패키지에 샘플 참고.)
+* 이 라이브러리에서 할 수 있는 일.(com.agadasom.hwplib.sample 패키지에 샘플 참고.)
 	- 한글 파일을 읽어서 객체로 생성 : Reading_HWP_FromFile, Reading_HWP_FromURL
 	- 만들어진 객체를 파일로 저장 : Rewriting_HWPFile, SimpleEditing_HWPFile
 	- 한글 파일에서 텍스트 추출 : Extracting_Text, Extracting_Text_From_Big_File
@@ -251,7 +251,7 @@
 
 2021.7.2
 =========================================================================================  
-* 이슈 12,18 : 텍스트 추출시 문단 번호/글머리표를 포함하게 수정. (kr.dogfoot.hwplib.sample.Extracting_Text_With_ParaHead 참고)
+* 이슈 12,18 : 텍스트 추출시 문단 번호/글머리표를 포함하게 수정. (com.agadasom.hwplib.sample.Extracting_Text_With_ParaHead 참고)
 
 2021.6.25
 =========================================================================================  
@@ -260,7 +260,7 @@
 2021.5.31
 =========================================================================================  
 * 단정의 컨트롤(ControlColumnDefine) read/write 수정
-* 이슈 143 : 문단 추가 기능(kr.dogfoot.hwplib.tool.paragraphadder)에 단정의 컨트롤 복사 기능 추가.
+* 이슈 143 : 문단 추가 기능(com.agadasom.hwplib.tool.paragraphadder)에 단정의 컨트롤 복사 기능 추가.
 
 2021.5.17
 =========================================================================================  
@@ -268,7 +268,7 @@
 
 2021.5.17
 =========================================================================================  
-* 이슈 139 : 문단 추가 기능(kr.dogfoot.hwplib.tool.paragraphadder)에 겹침문자 컨트롤 복사 기능 추가.
+* 이슈 139 : 문단 추가 기능(com.agadasom.hwplib.tool.paragraphadder)에 겹침문자 컨트롤 복사 기능 추가.
 * 컨트롤의 [본문과의 배치]속성값 수정
 * 이슈 140 : CharShape.getBorderFillId()가 0 일때, 문단추가 기능 오류 수정..  
 
@@ -287,7 +287,7 @@
 2021.2.24
 =========================================================================================  
 * 4095 바이트 보다 큰 레코드 읽고 쓰기 오류 수정
-* 빈 파일 만들기(kr.dogfoot.hwplib.tool.blankfilemaker.BlankFileMaker)에서 빠진 BorderFill 객체 생성.
+* 빈 파일 만들기(com.agadasom.hwplib.tool.blankfilemaker.BlankFileMaker)에서 빠진 BorderFill 객체 생성.
 
 2021.2.18
 =========================================================================================  
@@ -302,7 +302,7 @@
 2021.2.5
 =========================================================================================  
 * 이슈 122 : ParaText.insertString() 추가
-* 이슈 123 : kr.dogfoot.hwplib.tool.paragraphadder.docinfo.FaceNameAdder의 equal() 함수 내의 Null 체크 
+* 이슈 123 : com.agadasom.hwplib.tool.paragraphadder.docinfo.FaceNameAdder의 equal() 함수 내의 Null 체크 
 * 이슈 124 : bullet 복사 부분 수정 
 * 이슈 125 : numbering 복사 부분 수정
 * 이슈 126 : 묶음(Container) 안에 컨트롤 복사시 오류 수정
