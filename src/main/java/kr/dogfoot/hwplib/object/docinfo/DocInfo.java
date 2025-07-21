@@ -588,9 +588,8 @@ public class DocInfo {
     }
 
     /**
-     * 새로운 메모 모양 객체를 생성하고 리스트에 추가한다.
-     *
-     * @param rh 레코드 헤더
+     * 새로운 메모 모양 객체를 생성하고 리스트에 추가한다. *
+     * 
      * @return 새로 생성된 메모 모양 객체
      */
     public MemoShape addNewMemoShape() {
