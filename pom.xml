@@ -93,7 +93,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version> <!--default compile version-->
+                <version>3.1</version> <!--default version: 3.8 또는 3.14로 바꿀 예정  -->
                 <configuration>
                     <excludes>
                         <exclude>**/sample/**</exclude>
@@ -101,6 +101,7 @@
                     <source>17</source>
                     <target>17</target>
                     <compilerVersion>17</compilerVersion>
+                    <release>17</release>
                 </configuration>
             </plugin>
             <!-- make jar -->
@@ -120,7 +121,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <!-- <version>2.3</version> -->
+                <version>3.3.1</version> <!-- default version -->
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -135,7 +136,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <!-- <version>3.6.3</version> -->
+                <version>3.11.2</version> <!-- default version -->
                 <configuration>
                     <doclint>none</doclint>
                     <additionalOptions>
@@ -153,11 +154,13 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- repository에 배포 안할 것임. -->
             <!-- pgp 서명 -->
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <!-- <version>1.6</version> -->
+                <version>3.2.8</version> 
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -167,18 +170,18 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
             <!-- publish -->
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
-                <!-- <version>0.7.0</version> -->
+                <version>0.8.0</version>
                 <extensions>true</extensions>
                 <configuration>
                     <publishingServerId>central</publishingServerId>
                     <autoPublish>true</autoPublish>
                 </configuration>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
 
