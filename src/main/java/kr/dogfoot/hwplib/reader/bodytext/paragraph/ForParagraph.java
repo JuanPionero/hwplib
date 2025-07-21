@@ -179,7 +179,6 @@ public class ForParagraph {
                 && sr.getCurrentRecordHeader().getLevel() == 1;
     }
 
-
     private boolean isFollowMemo(StreamReader sr) {
         return this.paraHeaderLevel == 0
                 && sr.getCurrentRecordHeader().getTagID() == HWPTag.MEMO_LIST
@@ -194,11 +193,12 @@ public class ForParagraph {
     private void control() throws Exception {
         long id = sr.readUInt4();
         if (id == ControlType.Gso.getCtrlId()) {
-           ForGsoControl fgc = new ForGsoControl();
+            ForGsoControl fgc = new ForGsoControl();
             fgc.read(paragraph, sr);
         } else if (id == ControlType.Form.getCtrlId()) {
-            ForFormControl ffc = new ForFormControl();
-            ffc.read(paragraph, sr);
+            // ForFormControl ffc = new ForFormControl();
+            // ffc.read(paragraph, sr);
+            ForFormControl.read(paragraph, sr);
         } else {
             Control c = paragraph.addNewControl(id);
             ForControl.read(c, sr);
