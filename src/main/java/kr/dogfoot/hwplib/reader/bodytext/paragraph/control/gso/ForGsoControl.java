@@ -121,7 +121,7 @@ public class ForGsoControl {
     /**
      * 그리기 개체 컨트롤을 생성한다.
      *
-     * @param gsoId    그리기 개체 아이디
+     * @param gsoId 그리기 개체 아이디
      * @return 생성된 그리기 개체 컨트롤
      */
     private GsoControl createGsoControl(long gsoId) {
@@ -141,7 +141,7 @@ public class ForGsoControl {
     }
 
     /**
-     * 컨트롤의 너머지 부분을 읽는다.
+     * 컨트롤의 나머지 부분을 읽는다.
      *
      * @throws Exception
      */
