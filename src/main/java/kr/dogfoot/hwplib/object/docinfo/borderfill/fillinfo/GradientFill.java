@@ -206,7 +206,9 @@ public class GradientFill {
 
         changePointList.clear();
         for (Integer integer : from.changePointList) {
-            changePointList.add(new Integer(integer.intValue()));
+            // changePointList.add(new Integer(integer.intValue()));
+            // 사소한 warning 제거
+            changePointList.add(Integer.valueOf(integer.intValue()));
         }
 
         colorList.clear();
