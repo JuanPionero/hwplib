@@ -5,7 +5,7 @@ import kr.dogfoot.hwplib.object.docinfo.numbering.LevelNumbering;
 import java.util.ArrayList;
 
 /**
- * 문단 번호  레코드
+ * 문단 번호 레코드
  *
  * @author neolord
  */
@@ -43,7 +43,7 @@ public class Numbering {
      *
      * @param level 문단 번호 정보 객체를 얻고자 하는 수준(1~7)
      * @return level에 해당하는 문단 번호 정보 객체
-     * @throws Exception (level <1 || level>7) 일떼 발샐한다.
+     * @throws Exception (level &lt; 1 || level &gt; 7) 일떼 발샐한다.
      */
     public LevelNumbering getLevelNumbering(int level) throws Exception {
         if (level >= 1 && level <= 10) {

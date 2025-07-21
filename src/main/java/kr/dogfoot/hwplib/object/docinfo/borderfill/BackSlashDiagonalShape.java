@@ -23,7 +23,7 @@ public enum BackSlashDiagonalShape {
      */
     LeftTopToRightEdg((byte) 6),
     /**
-     * LeftTop --> Bottom & Right Edge
+     * LeftTop --> Bottom &amp; Right Edge
      */
     LeftTopToBottomRightEdge((byte) 7);
 

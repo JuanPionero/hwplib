@@ -23,7 +23,7 @@ public enum SlashDiagonalShape {
      */
     RightTopToLeftEdge((byte) 6),
     /**
-     * RightTop --> Bottom & Left Edge
+     * RightTop --> Bottom &amp; Left Edge
      */
     RightTopToBottomLeftEdge((byte) 7);
 
