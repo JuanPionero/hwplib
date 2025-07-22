@@ -5,6 +5,8 @@ import com.agadasom.hwplib.object.docinfo.BinData;
 import com.agadasom.hwplib.object.docinfo.bindata.BinDataCompress;
 import com.agadasom.hwplib.object.etc.HWPTag;
 import com.agadasom.hwplib.object.fileheader.FileVersion;
+import ext.org.apache.poi.hpsf.HwpPropertySet;
+import ext.org.apache.poi.hpsf.HwpSummaryInformation;
 import org.apache.poi.hpsf.PropertySet;
 import org.apache.poi.hpsf.SummaryInformation;
 import org.apache.poi.poifs.filesystem.DocumentInputStream;
@@ -325,14 +327,8 @@ public class HWPReader {
         try {
             dis = cfr.getChildInputStream("\u0005HwpSummaryInformation");
             if (dis != null) {
-                PropertySet propertySet = new PropertySet(dis);
-                System.out.println(propertySet);
-                System.out.println();
-                if(DOCUMENT_SUMMARY_INFORMATION_ID.equals( propertySet.getFirstSection().getFormatID().toString() )) {
-                    SummaryInformation si = new SummaryInformation(dis);
-                    hwpFile.setSummaryInformation(si);
-                }
-//            hwpFile.setSummaryInformation(new SummaryInformation(propertySet));
+                HwpPropertySet propertySet = new HwpPropertySet(dis);
+                hwpFile.setSummaryInformation(new HwpSummaryInformation(propertySet));
                 dis.close();
             } else {
                 System.out.println("HwpSummaryInformation is Empty");

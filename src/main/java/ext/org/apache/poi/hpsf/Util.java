@@ -15,7 +15,7 @@
    limitations under the License.
 ==================================================================== */
 
-package com.agadasom.hwplib.org.apache.poi.hpsf;
+package ext.org.apache.poi.hpsf;
 
 import java.io.IOException;
 import java.io.PrintWriter;

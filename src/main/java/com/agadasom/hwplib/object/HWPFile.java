@@ -4,6 +4,7 @@ import com.agadasom.hwplib.object.bindata.BinData;
 import com.agadasom.hwplib.object.bodytext.BodyText;
 import com.agadasom.hwplib.object.docinfo.DocInfo;
 import com.agadasom.hwplib.object.fileheader.FileHeader;
+import ext.org.apache.poi.hpsf.HwpSummaryInformation;
 import org.apache.poi.hpsf.*;
 
 import java.io.IOException;
@@ -30,7 +31,7 @@ public class HWPFile {
      * 바이너리 데이터를 나타내는 객체. "BinData" storage에 저장된다.
      */
     private BinData binData;
-    private SummaryInformation summaryInformation;
+    private HwpSummaryInformation summaryInformation;
     private Scripts scripts;
 
     /**
@@ -80,11 +81,11 @@ public class HWPFile {
         return binData;
     }
 
-    public SummaryInformation getSummaryInformation() {
+    public HwpSummaryInformation getSummaryInformation() {
         return summaryInformation;
     }
 
-    public void setSummaryInformation(SummaryInformation summaryInformation) {
+    public void setSummaryInformation(HwpSummaryInformation summaryInformation) {
         this.summaryInformation = summaryInformation;
     }
 
@@ -109,27 +110,11 @@ public class HWPFile {
         scripts.copy(from.scripts);
     }
 
-    private void copySummaryInformation(SummaryInformation from) {
+    private void copySummaryInformation(HwpSummaryInformation from) {
         try {
-            // byte[] source = from.toBytes();
-            // ByteArrayInputStream bis = new ByteArrayInputStream(source);
-            // PropertySet propertySet = new PropertySet(bis);
-            // summaryInformation = new SummaryInformation(propertySet);
-            // 라이브러리 버전 변경되면서 방법도 바뀜.
-            summaryInformation = new SummaryInformation(from.toInputStream());
-        } catch (WritingNotSupportedException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+            summaryInformation = new HwpSummaryInformation(from.toInputStream());
+        } catch (WritingNotSupportedException | IOException | NoPropertySetStreamException e) {
             throw new RuntimeException(e);
         }
-        // catch (UnexpectedPropertySetTypeException e) {
-        // throw new RuntimeException(e);
-        // }
-        catch (NoPropertySetStreamException e) {
-            throw new RuntimeException(e);
-        }
-        // catch (MarkUnsupportedException e) {
-        // throw new RuntimeException(e);
-        // }
     }
 }

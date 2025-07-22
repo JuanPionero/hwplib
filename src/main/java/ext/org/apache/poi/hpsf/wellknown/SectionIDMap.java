@@ -15,7 +15,9 @@
    limitations under the License.
 ==================================================================== */
 
-package com.agadasom.hwplib.org.apache.poi.hpsf.wellknown;
+package ext.org.apache.poi.hpsf.wellknown;
+
+import org.apache.poi.hpsf.wellknown.PropertyIDMap;
 
 import java.util.HashMap;
 
