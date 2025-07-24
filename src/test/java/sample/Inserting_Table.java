@@ -260,7 +260,7 @@ public class Inserting_Table {
             pt.addString(text2);
         } catch (UnsupportedEncodingException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            // e.printStackTrace();
         }
     }
 
